@@ -1,0 +1,175 @@
+[gd_scene load_steps=17 format=3 uid="uid://b2qpvhrrevhk1"]
+
+[ext_resource type="Script" uid="uid://chd3t003xppje" path="res://item.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://77bna2d7sl3q" path="res://cursor.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://rut3dkhsaxi5" path="res://New folder/purple violet.png" id="2_7mycd"]
+[ext_resource type="Texture2D" uid="uid://cf7ehnfsa5j21" path="res://icon.svg" id="3_272bh"]
+[ext_resource type="PackedScene" uid="uid://khifd8plk47q" path="res://cursor_2.tscn" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://b3a76qnqt6dww" path="res://New folder/room.png" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://b3cs3m8ddtd3w" path="res://pot.gd" id="5_lquwl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2yge"]
+radius = 9.05539
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
+radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("4_1bvp3")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5vw27"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lquwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mycd"]
+radius = 17.0294
+
+[sub_resource type="LabelSettings" id="LabelSettings_272bh"]
+font_size = 12
+
+[node name="main" type="Node2D"]
+
+[node name="item2" type="Area2D" parent="."]
+position = Vector2(22, -46)
+script = ExtResource("1_ig7tw")
+metadata/_custom_type_script = "uid://chd3t003xppje"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item2"]
+shape = SubResource("CircleShape2D_h2yge")
+
+[node name="purple violet" type="Area2D" parent="."]
+position = Vector2(71, -18)
+script = ExtResource("1_ig7tw")
+info = {
+"acidic": false,
+"amplifier": false,
+"img": ExtResource("2_7mycd"),
+"item_name": "purple violet",
+"medicinal": false,
+"nullifier": false,
+"toxic": false,
+"type": "ingredient"
+}
+metadata/_custom_type_script = "uid://chd3t003xppje"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="purple violet"]
+shape = SubResource("CircleShape2D_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="purple violet"]
+texture = ExtResource("2_7mycd")
+
+[node name="item4" type="Area2D" parent="."]
+position = Vector2(46, -34)
+script = ExtResource("1_ig7tw")
+info = {
+"acidic": false,
+"amplifier": false,
+"img": ExtResource("3_272bh"),
+"item_name": "default",
+"medicinal": false,
+"nullifier": false,
+"toxic": false
+}
+metadata/_custom_type_script = "uid://chd3t003xppje"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item4"]
+shape = SubResource("CircleShape2D_lquwl")
+
+[node name="cursor" parent="." instance=ExtResource("2_0xm2m")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="cursor 2" parent="." instance=ExtResource("3_h2yge")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 23)
+sprite_frames = SubResource("SpriteFrames_5vw27")
+autoplay = "default"
+frame_progress = 0.817752
+
+[node name="pot" type="Area2D" parent="."]
+position = Vector2(0, 28)
+script = ExtResource("5_lquwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pot"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_7mycd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Container2" type="Container" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -102.0
+offset_right = 20.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="quest" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 2.0
+offset_right = 60.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="request" type="Label" parent="CanvasLayer/quest"]
+layout_mode = 2
+text = "cvbnj"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+
+[node name="time" type="ProgressBar" parent="CanvasLayer/quest"]
+custom_minimum_size = Vector2(60, 6)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+value = 100.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="CanvasLayer/quest/time"]
+
+[node name="money" type="Label" parent="CanvasLayer"]
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 51.0
+offset_bottom = 27.0
+text = "$0"

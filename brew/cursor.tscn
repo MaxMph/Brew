@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://77bna2d7sl3q"]
+
+[ext_resource type="Script" uid="uid://c2bb6bhe5p1r3" path="res://cursor.gd" id="1_5l68f"]
+[ext_resource type="Texture2D" uid="uid://cf7ehnfsa5j21" path="res://icon.svg" id="2_e4vdg"]
+[ext_resource type="Texture2D" uid="uid://rut3dkhsaxi5" path="res://New folder/purple violet.png" id="3_e4vdg"]
+
+[node name="cursor" type="CanvasLayer"]
+script = ExtResource("1_5l68f")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Node2D"]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_e4vdg")
+
+[node name="underimg" type="Sprite2D" parent="Node2D"]
+z_index = -1
+texture = ExtResource("3_e4vdg")

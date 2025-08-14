@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://khifd8plk47q"]
+
+[ext_resource type="Script" uid="uid://bsyqh4aeynxec" path="res://cursor_2.gd" id="1_s3mvg"]
+[ext_resource type="Texture2D" uid="uid://cf7ehnfsa5j21" path="res://icon.svg" id="2_1wy56"]
+
+[node name="cursor 2" type="Node2D"]
+script = ExtResource("1_s3mvg")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Node2D"]
+visible = false
+z_index = 10
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_1wy56")
+
+[node name="underimg" type="Sprite2D" parent="Node2D"]
+z_index = 10
