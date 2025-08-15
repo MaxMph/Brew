@@ -11,8 +11,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$Node2D.global_position = get_viewport().get_mouse_position() - get_viewport_rect().size / 2
 	if Global.cur_item != null:
-		if Global.cur_item["type"] == "ingredient":
-			underimg = Global.cur_item["img"]
+		#if Global.cur_item["type"] == "ingredient":
+		underimg = Global.cur_item["img"]
 	else:
 		underimg = null
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b2qpvhrrevhk1"]
+[gd_scene load_steps=26 format=3 uid="uid://b2qpvhrrevhk1"]
 
 [ext_resource type="Script" uid="uid://brp8b2v4tbeuc" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="Script" uid="uid://chd3t003xppje" path="res://item.gd" id="1_ig7tw"]
@@ -14,8 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://deqt2dqj25jim" path="res://sound/splash-water-103984.mp3" id="12_dg77c"]
 [ext_resource type="AudioStream" uid="uid://cpm3e2rk7g8b" path="res://sound/clothes-drop-2-40202.mp3" id="13_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://07c6c1ebj4sd" path="res://New folder/pot_fill.png" id="14_w48qg"]
-[ext_resource type="AudioStream" uid="uid://c10lvys8si4go" path="res://sound/try 2.mp3" id="14_yaehf"]
-[ext_resource type="Script" uid="uid://8pigmwwurlk5" path="res://guy.gd" id="15_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://rf4rrxgkgh0i" path="res://New folder/guy.png" id="15_vivmo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2yge"]
@@ -68,9 +66,6 @@ radius = 17.0294
 
 [sub_resource type="LabelSettings" id="LabelSettings_272bh"]
 font_size = 12
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_yaehf"]
-radius = 18.0278
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_5vw27")
@@ -255,27 +250,13 @@ stream = ExtResource("13_ycdy4")
 volume_db = -7.495
 pitch_scale = 1.79
 
-[node name="sell" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_yaehf")
-volume_db = -7.495
-pitch_scale = 1.79
-
 [node name="PotFill" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(0, 23)
 texture = ExtResource("14_w48qg")
 offset = Vector2(0, 0.5)
 
-[node name="guy" type="Area2D" parent="."]
-position = Vector2(-31, -30)
-script = ExtResource("15_2cqfq")
-
-[node name="Guy" type="Sprite2D" parent="guy"]
+[node name="Guy" type="Sprite2D" parent="."]
 z_index = -4
+position = Vector2(-31, -30)
 texture = ExtResource("15_vivmo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="guy"]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_yaehf")
-
-[connection signal="timeout" from="CanvasLayer/quest/time/Timer" to="." method="_on_timer_timeout"]
