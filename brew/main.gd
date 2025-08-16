@@ -13,16 +13,17 @@ func new_request():
 	$CanvasLayer/quest/time/Timer.wait_time = Global.request_time
 	$CanvasLayer/quest/time.max_value = Global.request_time
 	$CanvasLayer/quest/time/Timer.start()
-	match randi_range(0, 1):
+	match randi_range(0, 2):
 		0: Global.requested_potion = "health"
-		
 		1: Global.requested_potion = "strength"
+		2: Global.requested_potion = "curse nullifier"
 	$CanvasLayer/quest/request.text = "1 " + Global.requested_potion + " potion"
 	
 	
-	Global.request_time = Global.request_time / 1.6
+	Global.request_time = Global.request_time / 1.5
 
 
 func _on_timer_timeout() -> void:
 	#get_tree().reload_current_scene()
-	Global.reset()
+	#Global.reset()
+	get_tree().change_scene_to_file("res://game_over.tscn")

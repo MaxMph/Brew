@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	pass
 
 func reset():
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://main.tscn")
 	has_item = false
 	cur_item = null
 	in_menu = false

@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgccmd1g67u67"]
+[gd_scene load_steps=3 format=3 uid="uid://dgccmd1g67u67"]
+
+[ext_resource type="Script" uid="uid://dm1el1tfkcktv" path="res://game_over.gd" id="1_y26ei"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xapjj"]
 font_size = 22
@@ -11,25 +13,61 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_y26ei")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_top = 47.0
-offset_bottom = 78.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Game Over"
+text = "Shop Closed"
 label_settings = SubResource("LabelSettings_xapjj")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="profit" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Profit: $0"
+horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "time open: $0"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="start shift" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Start Shift"
+
+[node name="quit" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.176132, 0.144648, 0.12012, 1)
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/start shift" to="." method="_on_open_shop_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_pressed"]

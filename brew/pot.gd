@@ -5,7 +5,8 @@ var added = []
 
 var potion_recipies = {
 	"health": ["purple violet", "bones"],
-	"strength": ["shrooms", "bones"]
+	"strength": ["shrooms", "bones"],
+	"curse nullifier": ["sage", "purple violet", "shrooms"]
 }
 
 
@@ -34,6 +35,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 func vile():
 	check_ingredients("health")
 	check_ingredients("strength")
+	check_ingredients("curse nullifier")
 	added.clear()
 	#for i in potion_recipies["health"]:
 		#if added.find()

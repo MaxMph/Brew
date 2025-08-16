@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b2qpvhrrevhk1"]
+[gd_scene load_steps=41 format=3 uid="uid://b2qpvhrrevhk1"]
 
 [ext_resource type="Script" uid="uid://brp8b2v4tbeuc" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="Script" uid="uid://chd3t003xppje" path="res://item.gd" id="1_ig7tw"]
@@ -10,13 +10,19 @@
 [ext_resource type="Texture2D" uid="uid://dof0lr87n3s4j" path="res://New folder/bone1.png" id="4_efxa6"]
 [ext_resource type="Texture2D" uid="uid://c6oswe4m64a8f" path="res://New folder/shroom 1.png" id="5_kek77"]
 [ext_resource type="Script" uid="uid://b3cs3m8ddtd3w" path="res://pot.gd" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://bacrngafq5qcs" path="res://New folder/sage2.png" id="7_cegan"]
+[ext_resource type="Texture2D" uid="uid://ddyxkw55b1c3q" path="res://New folder/sage.png" id="8_82xsv"]
 [ext_resource type="Texture2D" uid="uid://vl371a412raw" path="res://New folder/vile2.png" id="11_efxa6"]
 [ext_resource type="AudioStream" uid="uid://deqt2dqj25jim" path="res://sound/splash-water-103984.mp3" id="12_dg77c"]
 [ext_resource type="AudioStream" uid="uid://cpm3e2rk7g8b" path="res://sound/clothes-drop-2-40202.mp3" id="13_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://07c6c1ebj4sd" path="res://New folder/pot_fill.png" id="14_w48qg"]
 [ext_resource type="AudioStream" uid="uid://c10lvys8si4go" path="res://sound/try 2.mp3" id="14_yaehf"]
 [ext_resource type="Script" uid="uid://8pigmwwurlk5" path="res://guy.gd" id="15_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://s520ea2vk7h2" path="res://New folder/book.png" id="15_ryguw"]
 [ext_resource type="Texture2D" uid="uid://rf4rrxgkgh0i" path="res://New folder/guy.png" id="15_vivmo"]
+[ext_resource type="FontFile" uid="uid://ct4onlxqui7vi" path="res://fonts/alagard.ttf" id="16_d13ii"]
+[ext_resource type="FontFile" uid="uid://bxxfte6nd7ksa" path="res://fonts/zx-spectrum.ttf" id="17_1u8w0"]
+[ext_resource type="Script" uid="uid://b4g6jb21l7lh7" path="res://bookshelf.gd" id="23_d13ii"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2yge"]
 radius = 9.05539
@@ -25,6 +31,9 @@ radius = 9.05539
 radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_getpj"]
 radius = 9.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efxa6"]
@@ -69,14 +78,32 @@ radius = 17.0294
 [sub_resource type="LabelSettings" id="LabelSettings_272bh"]
 font_size = 12
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0odxb"]
+texture = ExtResource("15_ryguw")
+
+[sub_resource type="LabelSettings" id="LabelSettings_lswn8"]
+font = ExtResource("16_d13ii")
+
+[sub_resource type="LabelSettings" id="LabelSettings_a6jrf"]
+line_spacing = 0.0
+font = ExtResource("17_1u8w0")
+font_size = 7
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xuqvo"]
+color = Color(1, 1, 1, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_yaehf"]
 radius = 18.0278
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1u8w0"]
+radius = 20.0
+height = 90.0
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_5vw27")
 
 [node name="bones" type="Area2D" parent="."]
-position = Vector2(22, -46)
+position = Vector2(22, -43)
 script = ExtResource("1_ig7tw")
 info = {
 "acidic": false,
@@ -94,15 +121,15 @@ metadata/_custom_type_script = "uid://chd3t003xppje"
 shape = SubResource("CircleShape2D_h2yge")
 
 [node name="Bone1" type="Sprite2D" parent="bones"]
-position = Vector2(-1, 4)
+position = Vector2(-1, 1)
 texture = ExtResource("4_efxa6")
 
 [node name="Bone2" type="Sprite2D" parent="bones"]
-position = Vector2(0, 4)
+position = Vector2(0, 1)
 texture = ExtResource("3_4c57u")
 
 [node name="purple violet" type="Area2D" parent="."]
-position = Vector2(71, -18)
+position = Vector2(80, -13)
 script = ExtResource("1_ig7tw")
 info = {
 "acidic": false,
@@ -123,7 +150,7 @@ shape = SubResource("CircleShape2D_1bvp3")
 texture = ExtResource("2_7mycd")
 
 [node name="shrooms" type="Area2D" parent="."]
-position = Vector2(50, -30)
+position = Vector2(40, -33)
 script = ExtResource("1_ig7tw")
 info = {
 "acidic": false,
@@ -142,6 +169,27 @@ shape = SubResource("CircleShape2D_lquwl")
 
 [node name="Shroom1" type="Sprite2D" parent="shrooms"]
 texture = ExtResource("5_kek77")
+
+[node name="sage" type="Area2D" parent="."]
+position = Vector2(59, -22)
+script = ExtResource("1_ig7tw")
+info = {
+"acidic": false,
+"amplifier": false,
+"img": ExtResource("7_cegan"),
+"item_name": "sage",
+"medicinal": false,
+"nullifier": false,
+"toxic": false,
+"type": "ingredient"
+}
+metadata/_custom_type_script = "uid://chd3t003xppje"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sage"]
+shape = SubResource("CircleShape2D_getpj")
+
+[node name="Sage" type="Sprite2D" parent="sage"]
+texture = ExtResource("8_82xsv")
 
 [node name="vile" type="Area2D" parent="."]
 script = ExtResource("1_ig7tw")
@@ -191,19 +239,6 @@ max_polyphony = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Container2" type="Container" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -102.0
-offset_right = 20.0
-offset_bottom = -62.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="quest" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -237,6 +272,196 @@ offset_top = 4.0
 offset_right = 51.0
 offset_bottom = 27.0
 text = "$0"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 40
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0odxb")
+
+[node name="book" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -90.0
+offset_right = 115.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_ryguw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/book"]
+custom_minimum_size = Vector2(110, 160)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 11.0
+offset_right = 115.0
+offset_bottom = 171.0
+theme_override_constants/separation = 10
+
+[node name="health" type="VBoxContainer" parent="CanvasLayer/book/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/book/VBoxContainer/health"]
+layout_mode = 2
+text = "Health"
+label_settings = SubResource("LabelSettings_lswn8")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book/VBoxContainer/health"]
+layout_mode = 2
+alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/book/VBoxContainer/health/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book/VBoxContainer/health/HBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("4_efxa6")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/book/VBoxContainer/health/HBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("3_4c57u")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/book/VBoxContainer/health/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_7mycd")
+
+[node name="Label2" type="Label" parent="CanvasLayer/book/VBoxContainer/health"]
+texture_filter = 1
+layout_mode = 2
+text = "Bones and Purple Violets"
+label_settings = SubResource("LabelSettings_a6jrf")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/book/VBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_xuqvo")
+
+[node name="strength" type="VBoxContainer" parent="CanvasLayer/book/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/book/VBoxContainer/strength"]
+layout_mode = 2
+text = "Strength"
+label_settings = SubResource("LabelSettings_lswn8")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book/VBoxContainer/strength"]
+layout_mode = 2
+alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/book/VBoxContainer/strength/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book/VBoxContainer/strength/HBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("4_efxa6")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/book/VBoxContainer/strength/HBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("3_4c57u")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/book/VBoxContainer/strength/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_kek77")
+
+[node name="Label2" type="Label" parent="CanvasLayer/book/VBoxContainer/strength"]
+texture_filter = 1
+layout_mode = 2
+text = "Bones and Mushrooms"
+label_settings = SubResource("LabelSettings_a6jrf")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/book"]
+custom_minimum_size = Vector2(100, 160)
+layout_mode = 0
+offset_left = 119.0
+offset_top = 11.0
+offset_right = 219.0
+offset_bottom = 171.0
+theme_override_constants/separation = 10
+
+[node name="health" type="VBoxContainer" parent="CanvasLayer/book/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/book/VBoxContainer2/health"]
+layout_mode = 2
+text = "Curse Nullifier"
+label_settings = SubResource("LabelSettings_lswn8")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/book/VBoxContainer2/health"]
+layout_mode = 2
+alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/book/VBoxContainer2/health/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/book/VBoxContainer2/health/HBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("4_efxa6")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/book/VBoxContainer2/health/HBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("3_4c57u")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/book/VBoxContainer2/health/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_7mycd")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/book/VBoxContainer2/health/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_82xsv")
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/book/VBoxContainer2/health/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_kek77")
+
+[node name="Label2" type="Label" parent="CanvasLayer/book/VBoxContainer2/health"]
+texture_filter = 1
+layout_mode = 2
+text = "Purple Violets,Sage and Mushrooms"
+label_settings = SubResource("LabelSettings_a6jrf")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="leave" type="Button" parent="CanvasLayer/book"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = 6.0
+offset_right = 25.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("16_d13ii")
+text = "Leave"
+flat = true
 
 [node name="Vile2" type="Sprite2D" parent="."]
 position = Vector2(55, 30)
@@ -278,4 +503,13 @@ texture = ExtResource("15_vivmo")
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_yaehf")
 
+[node name="bookshelf" type="Area2D" parent="."]
+position = Vector2(-77, -1)
+script = ExtResource("23_d13ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bookshelf"]
+position = Vector2(-2, 1)
+shape = SubResource("CapsuleShape2D_1u8w0")
+
 [connection signal="timeout" from="CanvasLayer/quest/time/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/book/leave" to="bookshelf" method="_on_leave_pressed"]
